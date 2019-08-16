@@ -87,7 +87,7 @@
         $("#history").prepend(
           '<div class="history-item">' + filename + "</div>"
         );
-        $(".history-item").each((i, el) => {
+        $(".history-item").each(function(i, el) {
           if (i > 10) {
             $(el).remove();
           }
@@ -121,7 +121,7 @@
       $(document).ready(function() {
         loadBackground();
         // if it isn't loaded by gmod load manually
-        setTimeout(() => {
+        setTimeout(function() {
           if (!isGmod) {
             isTest = true;
             loadAll();
@@ -139,7 +139,7 @@
             SetFilesTotal(totalTestFiles);
 
             var needed = totalTestFiles;
-            setInterval(() => {
+            setInterval(function() {
               if (needed > 0) {
                 needed = needed - 1;
                 SetFilesNeeded(needed);
