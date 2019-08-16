@@ -77,12 +77,12 @@
       }
 
       function SetFilesNeeded(needed) {
-        let percentage = 100 - Math.round((needed / totalFiles) * 100);
+        var percentage = 100 - Math.round((needed / totalFiles) * 100);
         //   console.log(percentage);
         $(".overhaul").css("left", `${percentage}vw`);
       }
 
-      let fileCount = 0;
+      var fileCount = 0;
       function DownloadingFile(filename) {
         $("#history").prepend(`<div class="history-item">${filename}</div>`);
         $(".history-item").each((i, el) => {
@@ -133,10 +133,10 @@
               "Gamemode"
             );
 
-            let totalFiles = 100;
-            SetFilesTotal(totalFiles);
+            var totalTestFiles = 100;
+            SetFilesTotal(totalTestFiles);
 
-            let needed = totalFiles;
+            var needed = totalTestFiles;
             setInterval(() => {
               if (needed > 0) {
                 needed = needed - 1;
