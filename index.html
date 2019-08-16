@@ -79,17 +79,19 @@
       function SetFilesNeeded(needed) {
         var percentage = 100 - Math.round((needed / totalFiles) * 100);
         //   console.log(percentage);
-        $(".overhaul").css("left", `${percentage}vw`);
+        $(".overhaul").css("left", percentage + "vw");
       }
 
       var fileCount = 0;
       function DownloadingFile(filename) {
-        $("#history").prepend(`<div class="history-item">${filename}</div>`);
+        $("#history").prepend(
+          '<div class="history-item">' + filename + "</div>"
+        );
         $(".history-item").each((i, el) => {
           if (i > 10) {
             $(el).remove();
           }
-          $(el).css("opacity", `${1 - i * 0.1}`);
+          $(el).css("opacity", "" + 1 - i * 0.1);
         });
       }
 
@@ -108,7 +110,7 @@
         if (Config.backgroundImage) {
           $(".background").css(
             "background-image",
-            `url("images/${Config.backgroundImage}")`
+            'url("images/' + Config.backgroundImage + '")'
           );
         }
       }
@@ -141,7 +143,7 @@
               if (needed > 0) {
                 needed = needed - 1;
                 SetFilesNeeded(needed);
-                DownloadingFile(`Filename${needed}`);
+                DownloadingFile("Filename " + needed);
               }
             }, 500);
 
