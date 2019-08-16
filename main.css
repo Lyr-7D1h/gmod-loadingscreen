@@ -2,6 +2,7 @@ body {
   font-family: "Ubuntu Mono", "Arial";
   margin: 0;
   color: white;
+  background-color: black;
 }
 
 nav,
@@ -12,6 +13,7 @@ main {
 nav {
   background-color: rgba(0, 0, 0, 0.5);
   padding: 1%;
+  overflow: auto;
 }
 h2 {
   font-size: 1.5em;
@@ -32,7 +34,8 @@ h1 {
 #history {
   position: absolute;
   text-align: center;
-  left: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
   color: rgb(240, 240, 240);
   text-shadow: none;
 }
@@ -41,7 +44,7 @@ h1 {
   width: 100vw;
   height: 100vh;
   position: fixed;
-  background-image: url("background.jpg");
+  background-image: url("images/default.jpg");
   background-size: cover;
 }
 .overhaul {

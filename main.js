@@ -1,4 +1,4 @@
-let isGmod = false;
+var isGmod = false;
 let isTest = false;
 let totalFiles = 50;
 
@@ -26,9 +26,11 @@ const GameDetails = (
   $("#title").fadeIn();
 
   if (Config.enableMap) {
-    $("#map").html(mapname);
+    $("#map").append(mapname);
+    $("#map").fadeIn();
+  } else {
+    $("#map").hide();
   }
-  $("#map").fadeIn();
 
   if (Config.enableSteamID) {
     $("#steamid").html(steamid);
@@ -38,7 +40,6 @@ const GameDetails = (
 
 const SetFilesTotal = total => {
   totalFiles = total;
-  console.log(total);
 };
 
 const SetFilesNeeded = needed => {
@@ -63,9 +64,26 @@ const SetStatusChanged = status => {
 };
 
 /**
+ * External Functions
+ */
+const loadAll = () => {
+  $("nav").fadeIn();
+  $("main").fadeIn();
+};
+const loadBackground = () => {
+  if (Config.backgroundImage) {
+    $(".background").css(
+      "background-image",
+      `url("images/${Config.backgroundImage}")`
+    );
+  }
+};
+
+/**
  * Initial function
  */
 $(document).ready(function() {
+  loadBackground();
   // if it isn't loaded by gmod load manually
   setTimeout(() => {
     if (!isGmod) {
@@ -96,11 +114,4 @@ $(document).ready(function() {
       SetStatusChanged("Testing..");
     }
   }, 2000);
-
-  console.log(Config);
 });
-
-const loadAll = () => {
-  $("nav").fadeIn();
-  $("main").fadeIn();
-};
