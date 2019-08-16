@@ -23,6 +23,13 @@ h1 {
 #steamid {
   float: right;
 }
+#history {
+  position: absolute;
+  text-align: center;
+  left: 20%;
+  color: rgb(240, 240, 240);
+  text-shadow: none;
+}
 .background {
   z-index: -2;
   width: 100vw;
@@ -44,4 +51,5 @@ h1 {
   top: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }

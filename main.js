@@ -39,12 +39,19 @@ const SetFilesTotal = total => {
 
 const SetFilesNeeded = needed => {
   let percentage = 100 - Math.round((needed / totalFiles) * 100);
-  console.log(percentage);
+  //   console.log(percentage);
   $(".overhaul").css("left", `${percentage}vw`);
 };
 
+let fileCount = 0;
 const DownloadingFile = filename => {
-  //   console.log(filename);
+  $("#history").prepend(`<div class="history-item">${filename}</div>`);
+  $(".history-item").each((i, el) => {
+    if (i > 10) {
+      $(el).remove();
+    }
+    $(el).css("opacity", `${1 - i * 0.1}`);
+  });
 };
 
 const SetStatusChanged = status => {
