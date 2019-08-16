@@ -1,13 +1,13 @@
 "use sctrict";
 
 var isGmod = false;
-let isTest = false;
-let totalFiles = 50;
+var isTest = false;
+var totalFiles = 50;
 
 /**
  * Gmod Called functions
  */
-const GameDetails = (
+var GameDetails = (
   servername,
   serverurl,
   mapname,
@@ -40,7 +40,7 @@ const GameDetails = (
   $("#steamid").fadeIn();
 };
 
-const SetFilesTotal = total => {
+var SetFilesTotal = total => {
   totalFiles = total;
 };
 
