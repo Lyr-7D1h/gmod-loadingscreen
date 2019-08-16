@@ -1,3 +1,5 @@
+"use sctrict";
+
 var isGmod = false;
 let isTest = false;
 let totalFiles = 50;
