@@ -1,5 +1,5 @@
 // ignore
-const Config = {};
+var Config = {};
 
 /**
  * What should the text in the center of the screen be?
