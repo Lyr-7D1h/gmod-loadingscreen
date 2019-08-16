@@ -3,6 +3,12 @@ body {
   margin: 0;
   color: white;
 }
+
+nav,
+main {
+  display: none;
+}
+
 nav {
   background-color: rgba(0, 0, 0, 0.5);
   padding: 1%;

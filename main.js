@@ -1,4 +1,5 @@
 let isGmod = false;
+let isTest = false;
 let totalFiles = 50;
 
 /**
@@ -13,6 +14,9 @@ const GameDetails = (
   gamemode
 ) => {
   isGmod = true;
+  if (!isTest) {
+    loadAll();
+  }
 
   if (Config.title) {
     $("#title").html(Config.title);
@@ -65,6 +69,9 @@ $(document).ready(function() {
   // if it isn't loaded by gmod load manually
   setTimeout(() => {
     if (!isGmod) {
+      isTest = true;
+      loadAll();
+
       GameDetails(
         "Servername",
         "Serverurl",
@@ -92,3 +99,8 @@ $(document).ready(function() {
 
   console.log(Config);
 });
+
+const loadAll = () => {
+  $("nav").fadeIn();
+  $("main").fadeIn();
+};
