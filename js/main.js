@@ -3,6 +3,7 @@
 var isGmod = false;
 var isTest = false;
 var totalFiles = 50;
+var totalCalled = false;
 
 /**
  * Gmod Called functions
@@ -43,14 +44,16 @@ function GameDetails(
 
 function SetFilesTotal(total) {
   debug("SetFilesTotal called");
+  totalCalled = true;
   totalFiles = total;
 }
 
 function SetFilesNeeded(needed) {
   debug("SetFilesNeeded called");
-  var percentage = 100 - Math.round((needed / totalFiles) * 100);
-  //   console.log(percentage);
-  $(".overhaul").css("left", percentage + "%");
+  if (totalCalled) {
+    var percentage = 100 - Math.round((needed / totalFiles) * 100);
+    $(".overhaul").css("left", percentage + "%");
+  }
 }
 
 var fileCount = 0;
@@ -67,7 +70,6 @@ function DownloadingFile(filename) {
 
 function SetStatusChanged(status) {
   debug("SetStatusChanged called");
-  console.log(status);
 }
 
 /**
