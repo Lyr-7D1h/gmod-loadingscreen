@@ -62,6 +62,7 @@ var fileCount = 0;
 function DownloadingFile(filename) {
   debug("DownloadingFile called '" + filename + "'");
   downloadingFileCalled = true;
+  filename = filename.replace("'", "");
   $("#history").prepend('<div class="history-item">' + filename + "</div>");
   $(".history-item").each(function(i, el) {
     if (i > 10) {
@@ -173,13 +174,13 @@ $(document).ready(function() {
   }, 1000);
 
   // first time loading if DownloadingFile isn't called after some time
-  // setTimeout(function() {
-  //   debug("Checking if first time loading.. " + downloadingFileCalled);
-  //   if (downloadingFileCalled) {
-  //     announce(
-  //       "This is your first time loading please wait for the files to download",
-  //       true
-  //     );
-  //   }
-  // }, 2000);
+  setTimeout(function() {
+    debug("Checking if first time loading.. " + downloadingFileCalled);
+    if (downloadingFileCalled) {
+      announce(
+        "This is your first time loading please wait for the files to download",
+        true
+      );
+    }
+  }, 2000);
 });
