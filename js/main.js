@@ -97,11 +97,15 @@ function loadBackground() {
     );
   }
 }
-function announce(message) {
-  if (Config.enableAnnouncements) {
+var permanent = false;
+function announce(message, ispermanent) {
+  if (Config.enableAnnouncements && !permanent) {
     $("#announcement").hide();
     $("#announcement").html(message);
     $("#announcement").fadeIn();
+  }
+  if (ispermanent) {
+    permanent = true;
   }
 }
 function debug(message) {
@@ -115,7 +119,27 @@ function debug(message) {
  * Initial function
  */
 $(document).ready(function() {
+  // load everything in when ready
   loadBackground();
+
+  // print announcement messages every few seconds
+  if (
+    Config.announceMessages &&
+    Config.enableAnnouncements &&
+    Config.announcementLength
+  ) {
+    if (Config.announceMessages.length > 0) {
+      var i = 0;
+      setInterval(function() {
+        announce(Config.announceMessages[i]);
+        i++;
+        if (i > Config.announceMessages.length - 1) {
+          i = 0;
+        }
+      }, Config.announcementLength);
+    }
+  }
+
   // if it isn't loaded by gmod load manually
   setTimeout(function() {
     if (!isGmod) {
@@ -149,12 +173,13 @@ $(document).ready(function() {
   }, 1000);
 
   // first time loading if DownloadingFile isn't called after some time
-  setTimeout(function() {
-    debug("Checking if first time loading.. " + downloadingFileCalled);
-    if (downloadingFileCalled) {
-      announce(
-        "This is your first time loading please wait for the files to download"
-      );
-    }
-  }, 2000);
+  // setTimeout(function() {
+  //   debug("Checking if first time loading.. " + downloadingFileCalled);
+  //   if (downloadingFileCalled) {
+  //     announce(
+  //       "This is your first time loading please wait for the files to download",
+  //       true
+  //     );
+  //   }
+  // }, 2000);
 });

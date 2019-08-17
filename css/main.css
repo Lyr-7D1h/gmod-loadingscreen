@@ -70,6 +70,7 @@ h1 {
 .loading-box {
   right: 0;
   bottom: 0;
+  position: absolute;
   width: 30%;
   height: 20%;
   background-color: rgba(0, 0, 0, 0.5);

@@ -17,11 +17,33 @@ Config.enableMap = true;
  */
 Config.enableSteamID = true;
 
+/**
+ * Enable announcements?
+ */
 Config.enableAnnouncements = true;
+
+/**
+ * What messages do you want to show up?
+ * only works if enableAnnouncements = true
+ */
+Config.announceMessages = [
+  "Enjoy your stay!",
+  "This loadingscreen is made by Exsite"
+];
+
+/**
+ * How many miliseconds for each announcement?
+ * only works if enableAnnouncements = true
+ */
+Config.announcementLength = 3000;
+
 /**
  * Image Filename
  * DROP IMAGE IN "images" FOLDER
  */
 Config.backgroundImage = "";
 
+/**
+ * Enable debug messages?
+ */
 Config.enableDebug = true;
