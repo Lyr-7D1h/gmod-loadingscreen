@@ -67,6 +67,14 @@ h1 {
   position: absolute;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
+.under-nav {
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  width: 70%;
+  height: 2%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 .loading-box {
   right: 0;
   bottom: 0;
