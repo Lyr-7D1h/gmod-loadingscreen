@@ -22,3 +22,5 @@ Config.enableSteamID = true;
  * DROP IMAGE IN "images" FOLDER
  */
 Config.backgroundImage = "";
+
+Config.debugEnabled = true;

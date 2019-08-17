@@ -15,6 +15,7 @@ function GameDetails(
   steamid,
   gamemode
 ) {
+  debug("GameDetails called");
   isGmod = true;
   if (!isTest) {
     loadAll();
@@ -41,10 +42,12 @@ function GameDetails(
 }
 
 function SetFilesTotal(total) {
+  debug("SetFilesTotal called");
   totalFiles = total;
 }
 
 function SetFilesNeeded(needed) {
+  debug("SetFilesNeeded called");
   var percentage = 100 - Math.round((needed / totalFiles) * 100);
   //   console.log(percentage);
   $(".overhaul").css("left", percentage + "%");
@@ -52,6 +55,7 @@ function SetFilesNeeded(needed) {
 
 var fileCount = 0;
 function DownloadingFile(filename) {
+  debug("DownloadingFile called");
   $("#history").prepend('<div class="history-item">' + filename + "</div>");
   $(".history-item").each(function(i, el) {
     if (i > 10) {
@@ -62,6 +66,7 @@ function DownloadingFile(filename) {
 }
 
 function SetStatusChanged(status) {
+  debug("SetStatusChanged called");
   console.log(status);
 }
 
@@ -80,6 +85,12 @@ function loadBackground() {
     );
   }
 }
+function debug(message) {
+  if (Config.debugEnabled) {
+    console.log(message);
+    $("#debug").append(message + "<br>");
+  }
+}
 
 /**
  * Initial function
@@ -89,6 +100,7 @@ $(document).ready(function() {
   // if it isn't loaded by gmod load manually
   setTimeout(function() {
     if (!isGmod) {
+      debug("No Garry's mod testing..");
       isTest = true;
       loadAll();
 
