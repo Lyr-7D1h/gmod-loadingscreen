@@ -17,10 +17,11 @@ Config.enableMap = true;
  */
 Config.enableSteamID = true;
 
+Config.enableAnnouncements = true;
 /**
  * Image Filename
  * DROP IMAGE IN "images" FOLDER
  */
 Config.backgroundImage = "";
 
-Config.debugEnabled = true;
+Config.enableDebug = true;

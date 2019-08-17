@@ -97,8 +97,15 @@ function loadBackground() {
     );
   }
 }
+function announce(message) {
+  if (Config.enableAnnouncements) {
+    $("#announcement").hide();
+    $("#announcement").html(message);
+    $("#announcement").fadeIn();
+  }
+}
 function debug(message) {
-  if (Config.debugEnabled) {
+  if (Config.enableDebug) {
     console.log(message);
     $("#debug").append(message + "<br>");
   }
@@ -145,7 +152,7 @@ $(document).ready(function() {
   setTimeout(function() {
     debug("Checking if first time loading.. " + downloadingFileCalled);
     if (downloadingFileCalled) {
-      $("#announcement").html(
+      announce(
         "This is your first time loading please wait for the files to download"
       );
     }

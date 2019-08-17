@@ -67,3 +67,10 @@ h1 {
   position: absolute;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
+.loading-box {
+  right: 0;
+  bottom: 0;
+  width: 30%;
+  height: 20%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
