@@ -112,7 +112,7 @@ function announce(message, ispermanent) {
 function debug(message) {
   if (Config.enableDebug) {
     console.log(message);
-    $("#debug").append(message + "<br>");
+    $("#debug").prepend(message + "<br>");
   }
 }
 
