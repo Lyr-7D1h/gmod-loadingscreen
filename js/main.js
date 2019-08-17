@@ -47,7 +47,7 @@ function SetFilesTotal(total) {
 function SetFilesNeeded(needed) {
   var percentage = 100 - Math.round((needed / totalFiles) * 100);
   //   console.log(percentage);
-  $(".overhaul").css("left", percentage + "vw");
+  $(".overhaul").css("left", percentage + "%");
 }
 
 var fileCount = 0;
