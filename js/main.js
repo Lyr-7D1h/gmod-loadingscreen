@@ -62,7 +62,7 @@ var fileCount = 0;
 function DownloadingFile(filename) {
   debug("DownloadingFile called '" + filename + "'");
   downloadingFileCalled = true;
-  filename = filename.replace("'", "");
+  filename = filename.replace("'", "").replace("?", "");
   $("#history").prepend('<div class="history-item">' + filename + "</div>");
   $(".history-item").each(function(i, el) {
     if (i > 10) {
