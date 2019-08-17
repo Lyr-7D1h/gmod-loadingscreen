@@ -89,6 +89,17 @@ function SetStatusChanged(status) {
 function loadAll() {
   $("nav").fadeIn();
   $("main").fadeIn();
+
+  // first time loading if DownloadingFile isn't called after some time
+  setTimeout(function() {
+    debug("Checking if first time loading.. " + downloadingFileCalled);
+    if (downloadingFileCalled) {
+      announce(
+        "This is your first time loading please wait for the files to download",
+        true
+      );
+    }
+  }, 2000);
 }
 function loadBackground() {
   if (Config.backgroundImage) {
@@ -172,15 +183,4 @@ $(document).ready(function() {
       SetStatusChanged("Testing..");
     }
   }, 1000);
-
-  // first time loading if DownloadingFile isn't called after some time
-  setTimeout(function() {
-    debug("Checking if first time loading.. " + downloadingFileCalled);
-    if (downloadingFileCalled) {
-      announce(
-        "This is your first time loading please wait for the files to download",
-        true
-      );
-    }
-  }, 5000);
 });
