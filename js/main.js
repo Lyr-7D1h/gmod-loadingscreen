@@ -52,6 +52,7 @@ function SetFilesNeeded(needed) {
   debug("SetFilesNeeded called");
   if (totalCalled) {
     var percentage = 100 - Math.round((needed / totalFiles) * 100);
+    debug(percentage + "%");
     $(".overhaul").css("left", percentage + "%");
   }
 }
