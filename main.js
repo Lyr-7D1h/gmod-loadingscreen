@@ -7,14 +7,14 @@ var totalFiles = 50;
 /**
  * Gmod Called functions
  */
-var GameDetails = (
+function GameDetails(
   servername,
   serverurl,
   mapname,
   maxplayers,
   steamid,
   gamemode
-) => {
+) {
   isGmod = true;
   if (!isTest) {
     loadAll();
@@ -38,48 +38,48 @@ var GameDetails = (
     $("#steamid").html(steamid);
   }
   $("#steamid").fadeIn();
-};
+}
 
-var SetFilesTotal = total => {
+function SetFilesTotal(total) {
   totalFiles = total;
-};
+}
 
-const SetFilesNeeded = needed => {
-  let percentage = 100 - Math.round((needed / totalFiles) * 100);
+function SetFilesNeeded(needed) {
+  var percentage = 100 - Math.round((needed / totalFiles) * 100);
   //   console.log(percentage);
-  $(".overhaul").css("left", `${percentage}vw`);
-};
+  $(".overhaul").css("left", percentage + "vw");
+}
 
-let fileCount = 0;
-const DownloadingFile = filename => {
-  $("#history").prepend(`<div class="history-item">${filename}</div>`);
-  $(".history-item").each((i, el) => {
+var fileCount = 0;
+function DownloadingFile(filename) {
+  $("#history").prepend('<div class="history-item">' + filename + "</div>");
+  $(".history-item").each(function(i, el) {
     if (i > 10) {
       $(el).remove();
     }
-    $(el).css("opacity", `${1 - i * 0.1}`);
+    $(el).css("opacity", "" + 1 - i * 0.1);
   });
-};
+}
 
-const SetStatusChanged = status => {
+function SetStatusChanged(status) {
   console.log(status);
-};
+}
 
 /**
  * External Functions
  */
-const loadAll = () => {
+function loadAll() {
   $("nav").fadeIn();
   $("main").fadeIn();
-};
-const loadBackground = () => {
+}
+function loadBackground() {
   if (Config.backgroundImage) {
     $(".background").css(
       "background-image",
-      `url("images/${Config.backgroundImage}")`
+      'url("images/' + Config.backgroundImage + '")'
     );
   }
-};
+}
 
 /**
  * Initial function
@@ -87,7 +87,7 @@ const loadBackground = () => {
 $(document).ready(function() {
   loadBackground();
   // if it isn't loaded by gmod load manually
-  setTimeout(() => {
+  setTimeout(function() {
     if (!isGmod) {
       isTest = true;
       loadAll();
@@ -101,15 +101,15 @@ $(document).ready(function() {
         "Gamemode"
       );
 
-      let totalFiles = 100;
-      SetFilesTotal(totalFiles);
+      var totalTestFiles = 100;
+      SetFilesTotal(totalTestFiles);
 
-      let needed = totalFiles;
-      setInterval(() => {
+      var needed = totalTestFiles;
+      setInterval(function() {
         if (needed > 0) {
           needed = needed - 1;
           SetFilesNeeded(needed);
-          DownloadingFile(`Filename${needed}`);
+          DownloadingFile("Filename " + needed);
         }
       }, 500);
 

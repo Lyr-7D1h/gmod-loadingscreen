@@ -21,4 +21,4 @@ Config.enableSteamID = true;
  * Image Filename
  * DROP IMAGE IN "images" FOLDER
  */
-Config.backgroundImage = "test.png";
+Config.backgroundImage = "";
