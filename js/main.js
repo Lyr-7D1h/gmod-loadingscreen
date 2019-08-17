@@ -99,7 +99,7 @@ function loadAll() {
         true
       );
     }
-  }, 2000);
+  }, 10000);
 }
 function loadBackground() {
   if (Config.backgroundImage) {
