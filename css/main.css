@@ -45,7 +45,7 @@ h1 {
   width: 100vw;
   height: 100vh;
   position: fixed;
-  background-image: url("images/default.jpg");
+  background-image: url("../images/default.jpg");
   background-size: cover;
 }
 .overhaul {
