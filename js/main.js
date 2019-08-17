@@ -59,7 +59,7 @@ function SetFilesNeeded(needed) {
 
 var fileCount = 0;
 function DownloadingFile(filename) {
-  debug("DownloadingFile called");
+  debug("DownloadingFile called '" + filename + "'");
   $("#history").prepend('<div class="history-item">' + filename + "</div>");
   $(".history-item").each(function(i, el) {
     if (i > 10) {
@@ -70,7 +70,7 @@ function DownloadingFile(filename) {
 }
 
 function SetStatusChanged(status) {
-  debug("SetStatusChanged called");
+  debug("SetStatusChanged called '" + status + "'");
 }
 
 /**
