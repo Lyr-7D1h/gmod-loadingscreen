@@ -31,6 +31,11 @@ h1 {
 #steamid {
   float: right;
 }
+#announcement {
+  position: absolute;
+  width: 98%;
+  text-align: center;
+}
 #history {
   position: absolute;
   text-align: center;

@@ -4,6 +4,16 @@ var isGmod = false;
 var isTest = false;
 var totalFiles = 50;
 var totalCalled = false;
+var downloadingFileCalled = false;
+
+// first time loading if DownloadingFile isn't called after some time
+setTimeout(function() {
+  if (!downloadingFileCalled) {
+    $("Announcement").html(
+      "This is your first time loading please wait for the files to download"
+    );
+  }
+}, 2000);
 
 /**
  * Gmod Called functions
@@ -60,6 +70,7 @@ function SetFilesNeeded(needed) {
 var fileCount = 0;
 function DownloadingFile(filename) {
   debug("DownloadingFile called '" + filename + "'");
+  downloadingFileCalled = true;
   $("#history").prepend('<div class="history-item">' + filename + "</div>");
   $(".history-item").each(function(i, el) {
     if (i > 10) {
@@ -71,6 +82,13 @@ function DownloadingFile(filename) {
 
 function SetStatusChanged(status) {
   debug("SetStatusChanged called '" + status + "'");
+  $("#history").prepend('<div class="history-item">' + status + "</div>");
+  $(".history-item").each(function(i, el) {
+    if (i > 10) {
+      $(el).remove();
+    }
+    $(el).css("opacity", "" + 1 - i * 0.1);
+  });
 }
 
 /**
