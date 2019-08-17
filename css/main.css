@@ -57,9 +57,10 @@ h1 {
   transition-duration: 1s;
 }
 .title {
-  left: 50%;
-  top: 50%;
+  text-align: center;
+  top: 40%;
+  width: 100vw;
   position: absolute;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
