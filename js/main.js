@@ -6,15 +6,6 @@ var totalFiles = 50;
 var totalCalled = false;
 var downloadingFileCalled = false;
 
-// first time loading if DownloadingFile isn't called after some time
-setTimeout(function() {
-  if (!downloadingFileCalled) {
-    $("Announcement").html(
-      "This is your first time loading please wait for the files to download"
-    );
-  }
-}, 2000);
-
 /**
  * Gmod Called functions
  */
@@ -147,6 +138,16 @@ $(document).ready(function() {
       }, 500);
 
       SetStatusChanged("Testing..");
+    }
+  }, 1000);
+
+  // first time loading if DownloadingFile isn't called after some time
+  setTimeout(function() {
+    debug("Checking if first time loading.. " + downloadingFileCalled);
+    if (downloadingFileCalled) {
+      $("#announcement").html(
+        "This is your first time loading please wait for the files to download"
+      );
     }
   }, 2000);
 });
