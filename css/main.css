@@ -34,9 +34,7 @@ h1 {
 #history {
   position: absolute;
   text-align: center;
-  left: 50%;
   width: 100%;
-  transform: translate(-50%, 0);
   color: rgb(240, 240, 240);
   text-shadow: none;
 }
