@@ -54,7 +54,7 @@ function SetFilesNeeded(needed) {
   debug("SetFilesNeeded called needed: " + needed);
   if (totalCalled) {
     var sPercentage = 100 - Math.round((needed / totalFiles) * 100);
-    percentage = percentage;
+    percentage = sPercentage;
     setLoad(sPercentage);
   }
 }
