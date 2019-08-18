@@ -44,7 +44,7 @@ function GameDetails(
 }
 
 function SetFilesTotal(total) {
-  debug("SetFilesTotal called");
+  debug("SetFilesTotal called total: " + total);
   totalCalled = true;
   totalFiles = total;
 }
