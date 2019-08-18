@@ -17,7 +17,6 @@ function GameDetails(
   steamid,
   gamemode
 ) {
-  console.log(serverurl);
   debug("GameDetails called");
   isGmod = true;
   if (!isTest) {
@@ -55,7 +54,7 @@ function SetFilesNeeded(needed) {
   if (totalCalled) {
     var percentage = 100 - Math.round((needed / totalFiles) * 100);
     debug(percentage + "%");
-    $(".overhaul").css("left", percentage + "%");
+    setLoad(percentage);
   }
 }
 
@@ -82,6 +81,13 @@ function SetStatusChanged(status) {
     }
     $(el).css("opacity", "" + 1 - i * 0.1);
   });
+  if (status === "Workshop Complete") {
+    setLoad(80);
+  } else if (status === "Client info sent!") {
+    setLoad(95);
+  } else if (status === "Starting Lua...") {
+    setLoad(100);
+  }
 }
 
 /**
@@ -109,6 +115,9 @@ function loadBackground() {
       'url("images/' + Config.backgroundImage + '")'
     );
   }
+}
+function setLoad(percentage) {
+  $(".overhaul").css("left", percentage + "%");
 }
 var permanent = false;
 function announce(message, ispermanent) {
