@@ -46,4 +46,4 @@ Config.backgroundImage = "";
 /**
  * Enable debug messages?
  */
-Config.enableDebug = true;
+Config.enableDebug = false;
