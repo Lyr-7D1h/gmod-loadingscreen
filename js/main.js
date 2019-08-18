@@ -50,7 +50,7 @@ function SetFilesTotal(total) {
 }
 
 function SetFilesNeeded(needed) {
-  debug("SetFilesNeeded called");
+  debug("SetFilesNeeded called needed: " + needed);
   if (totalCalled) {
     var percentage = 100 - Math.round((needed / totalFiles) * 100);
     debug(percentage + "%");
