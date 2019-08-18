@@ -17,6 +17,7 @@ function GameDetails(
   steamid,
   gamemode
 ) {
+  console.log(serverurl);
   debug("GameDetails called");
   isGmod = true;
   if (!isTest) {
