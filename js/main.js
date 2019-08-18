@@ -5,6 +5,7 @@ var isTest = false;
 var totalFiles = 50;
 var totalCalled = false;
 var downloadingFileCalled = false;
+var percentage = 0;
 
 /**
  * Gmod Called functions
@@ -52,9 +53,10 @@ function SetFilesTotal(total) {
 function SetFilesNeeded(needed) {
   debug("SetFilesNeeded called needed: " + needed);
   if (totalCalled) {
-    var percentage = 100 - Math.round((needed / totalFiles) * 100);
-    debug(percentage + "%");
-    setLoad(percentage);
+    var sPercentage = 100 - Math.round((needed / totalFiles) * 100);
+    percentage = percentage;
+    debug(sPercentage + "%");
+    setLoad(sPercentage);
   }
 }
 
@@ -87,6 +89,9 @@ function SetStatusChanged(status) {
     setLoad(95);
   } else if (status === "Starting Lua...") {
     setLoad(100);
+  } else {
+    percentage++;
+    setLoad(percentage);
   }
 }
 
