@@ -90,7 +90,7 @@ function SetStatusChanged(status) {
   } else if (status === "Starting Lua...") {
     setLoad(100);
   } else {
-    percentage++;
+    percentage = percentage + 0.1;
     setLoad(percentage);
   }
 }
