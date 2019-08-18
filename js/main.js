@@ -55,7 +55,6 @@ function SetFilesNeeded(needed) {
   if (totalCalled) {
     var sPercentage = 100 - Math.round((needed / totalFiles) * 100);
     percentage = percentage;
-    debug(sPercentage + "%");
     setLoad(sPercentage);
   }
 }
@@ -127,6 +126,7 @@ function loadBackground() {
   }
 }
 function setLoad(percentage) {
+  debug(percentage + "%");
   $(".overhaul").css("left", percentage + "%");
 }
 var permanent = false;
