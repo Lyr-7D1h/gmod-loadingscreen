@@ -74,6 +74,7 @@ function DownloadingFile(filename) {
   });
 }
 
+let allow_increment = true;
 function SetStatusChanged(status) {
   debug("SetStatusChanged called '" + status + "'");
   $("#history").prepend('<div class="history-item">' + status + "</div>");
@@ -84,14 +85,18 @@ function SetStatusChanged(status) {
     $(el).css("opacity", "" + 1 - i * 0.1);
   });
   if (status === "Workshop Complete") {
+    allow_increment = false;
     setLoad(80);
   } else if (status === "Client info sent!") {
+    allow_increment = false;
     setLoad(95);
   } else if (status === "Starting Lua...") {
     setLoad(100);
   } else {
-    percentage = percentage + 0.1;
-    setLoad(percentage);
+    if (allow_increment) {
+      percentage = percentage + 0.1;
+      setLoad(percentage);
+    }
   }
 }
 
