@@ -9,7 +9,9 @@ Feel free te edit and use however you please ;)
 
 
 # Usage
-Look at js/config.js for all configurable options
+1) Look at js/config.js for all configurable options
+2) Get yourself a web host
+3) Use [docs](https://wiki.garrysmod.com/page/Loading_URL) for configuring a loading screen in your Gmod server
 
 # Examples
 Live demo at https://projects.ivelthoven.nl/gmod-loadingscreen/
