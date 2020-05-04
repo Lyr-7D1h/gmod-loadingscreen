@@ -14,6 +14,6 @@ Feel free te edit and use however you please ;)
 3) Use [docs](https://wiki.garrysmod.com/page/Loading_URL) for configuring a loading screen in your Gmod server
 
 # Examples
-Live demo at https://projects.ivelthoven.nl/gmod-loadingscreen/
+Live demo at https://lyr-7d1h.github.io/gmod-loadingscreen/
 
 ![Image of Loadingscreen](https://i.imgur.com/LYpx95u.png)
