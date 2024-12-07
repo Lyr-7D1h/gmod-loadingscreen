@@ -28,7 +28,7 @@ Config.enableAnnouncements = true;
  */
 Config.announceMessages = [
   "Enjoy your stay!",
-  "This loadingscreen is made by Exsite"
+  "This loading screen is made by Exsite."
 ];
 
 /**
